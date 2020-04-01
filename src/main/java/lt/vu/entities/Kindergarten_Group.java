@@ -26,12 +26,14 @@ public class Kindergarten_Group {
     @Column(name = "DESCRIPTION")
     private String description;
 
+
     @ManyToOne
     @JoinColumn(name="TEACHER_ID")
     private Teacher teacher;
 
-    @OneToMany(mappedBy = "KINDERGARTEN_GROUP")
+    @OneToMany(mappedBy = "kindergarten_group")
     private List<Children> childrenList = new ArrayList<>();
+
 
     @Override
     public boolean equals(Object o) {

@@ -31,7 +31,7 @@ public class Activities_Group {
     @JoinColumn(name="TEACHER_ID")
     private Teacher teacher;
 
-    @OneToMany(mappedBy = "KINDERGARTEN_GROUP")
+    @ManyToMany(mappedBy="activities_groups")
     private List<Children> childrenList = new ArrayList<>();
 
     @Override

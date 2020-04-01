@@ -44,7 +44,6 @@ public class Children implements Serializable {
     @JoinTable(name="CHILDREN_ACTIVITIES")
     private List<Activities_Group> activities_groups = new ArrayList<>();
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
