@@ -46,4 +46,6 @@ public interface ActivitiesGroupMapper {
      * @mbg.generated Thu Apr 02 20:14:32 EEST 2020
      */
     int updateByPrimaryKey(ActivitiesGroup record);
+
+    List<ActivitiesGroup> selectActivitiesByChildren(Integer childrenId);
 }

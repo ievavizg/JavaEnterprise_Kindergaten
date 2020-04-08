@@ -14,7 +14,7 @@ import java.util.Objects;
 @Table(name = "ACTIVITIES_GROUP")
 @Getter
 @Setter
-public class Activities_Group {
+public class ActivitiesGroup {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -38,7 +38,7 @@ public class Activities_Group {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Activities_Group activities_group = (Activities_Group) o;
+        ActivitiesGroup activities_group = (ActivitiesGroup) o;
         return Objects.equals(name, activities_group.name);
     }
 

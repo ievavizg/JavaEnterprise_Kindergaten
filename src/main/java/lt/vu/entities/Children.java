@@ -27,7 +27,7 @@ public class Children implements Serializable {
 
     @Size(max = 50)
     @Column(name = "LAST_NAME")
-    private Integer lastName;
+    private String lastName;
 
     @Column(name = "BIRTHDATE")
     private Date birthDate;
@@ -38,11 +38,11 @@ public class Children implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="KIND_GROUP_ID")
-    private Kindergarten_Group kindergarten_group;
+    private KindergartenGroup kindergarten_group;
 
     @ManyToMany
     @JoinTable(name="CHILDREN_ACTIVITIES")
-    private List<Activities_Group> activities_groups = new ArrayList<>();
+    private List<ActivitiesGroup> activities_groups = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

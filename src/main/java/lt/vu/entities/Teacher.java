@@ -6,7 +6,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,14 +25,14 @@ public class Teacher {
 
     @Size(max = 50)
     @Column(name = "LAST_NAME")
-    private Integer lastName;
+    private String lastName;
 
     @Size(max = 11)
     @Column(name = "PERSONAL_CODE")
     private Long personalCode;
 
     @OneToMany(mappedBy = "teacher")
-    private List<Kindergarten_Group> kindergarten_groups = new ArrayList<>();
+    private List<KindergartenGroup> kindergarten_groups = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

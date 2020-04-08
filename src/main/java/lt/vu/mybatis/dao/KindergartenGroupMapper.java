@@ -46,4 +46,5 @@ public interface KindergartenGroupMapper {
      * @mbg.generated Thu Apr 02 20:14:32 EEST 2020
      */
     int updateByPrimaryKey(KindergartenGroup record);
+
 }

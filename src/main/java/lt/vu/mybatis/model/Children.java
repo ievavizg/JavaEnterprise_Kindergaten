@@ -37,7 +37,7 @@ public class Children {
      *
      * @mbg.generated Thu Apr 02 20:14:32 EEST 2020
      */
-    private Integer lastName;
+    private String lastName;
 
     /**
      *
@@ -137,7 +137,7 @@ public class Children {
      *
      * @mbg.generated Thu Apr 02 20:14:32 EEST 2020
      */
-    public Integer getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
@@ -149,7 +149,7 @@ public class Children {
      *
      * @mbg.generated Thu Apr 02 20:14:32 EEST 2020
      */
-    public void setLastName(Integer lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 

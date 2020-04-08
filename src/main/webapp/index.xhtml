@@ -6,8 +6,21 @@
 >
 <h:head/>
 <h:body>
+    <h3>Kindergarten</h3>
 
-    <h2>Childrens:</h2>
+    <ol>
+        <ui:repeat value="#{kindergartenGroups.allKindergartenGroups}" var="kindergartenGroup">
+            <li>
+                <h:outputText value="#{kindergartenGroup.name}" />
+            </li>
+        </ui:repeat>
+    </ol>
+
+    <h:form>
+        <h:inputText id="groupName" value="#{kindergartenGroups.newKindergartenGroup.name}" label="Group name" maxlength="30" ></h:inputText>
+        <h:inputText id="groupDescription" value="#{kindergartenGroups.newKindergartenGroup.description}" label="Description" maxlength="50" ></h:inputText>
+        <h:commandButton value="submit" type="submit" action="#{kindergartenGroups.createKindergartenGroup}" />
+    </h:form>
 
 </h:body>
 </html>

@@ -10,10 +10,14 @@ import java.util.Objects;
 
 @Entity
 
+@NamedQueries({
+        @NamedQuery(name = "kindergartenGroup.loadAll", query = "select kg from KindergartenGroup kg")
+})
+
 @Table(name = "KINDERGARTEN_GROUP")
 @Getter
 @Setter
-public class Kindergarten_Group {
+public class KindergartenGroup {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -25,7 +29,6 @@ public class Kindergarten_Group {
     @Size(max = 50)
     @Column(name = "DESCRIPTION")
     private String description;
-
 
     @ManyToOne
     @JoinColumn(name="TEACHER_ID")
@@ -39,7 +42,7 @@ public class Kindergarten_Group {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Kindergarten_Group kindergarten_group = (Kindergarten_Group) o;
+        KindergartenGroup kindergarten_group = (KindergartenGroup) o;
         return Objects.equals(name, kindergarten_group.name);
     }
 
