@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,7 +15,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-
+@NamedQueries({
+        @NamedQuery(name = "Children.findAll", query = "select ch from Children as ch where ch.kindergarten_group.id=:kindGroupId")
+})
 @Table(name = "CHILDREN")
 @Getter @Setter
 public class Children implements Serializable {
@@ -32,7 +37,7 @@ public class Children implements Serializable {
     @Column(name = "BIRTHDATE")
     private Date birthDate;
 
-    @Size(max = 11)
+    @NotNull(message = "Please enter personal code")
     @Column(name = "PERSONAL_CODE")
     private Long personalCode;
 

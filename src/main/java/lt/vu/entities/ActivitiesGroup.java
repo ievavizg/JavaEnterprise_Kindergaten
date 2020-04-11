@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "activitiesGroup.loadAll", query = "select ag from ActivitiesGroup as ag")
+})
 
 @Table(name = "ACTIVITIES_GROUP")
 @Getter

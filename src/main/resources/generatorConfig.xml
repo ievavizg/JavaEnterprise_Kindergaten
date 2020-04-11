@@ -28,5 +28,7 @@
         <table schema="public" tableName="teacher">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
         </table>
+        <table schema="public" tableName="children_activities">
+        </table>
     </context>
 </generatorConfiguration>

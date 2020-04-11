@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @Entity
 
+@NamedQueries({
+        @NamedQuery(name = "teacher.loadAll", query = "select t from Teacher t")
+})
+
 @Table(name = "TEACHER")
 @Getter
 @Setter
