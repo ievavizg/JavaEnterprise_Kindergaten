@@ -48,4 +48,6 @@ public interface ActivitiesGroupMapper {
     int updateByPrimaryKey(ActivitiesGroup record);
 
     List<ActivitiesGroup> selectActivitiesByChildren(Integer childrenId);
+
+    List<ActivitiesGroup> selectActivitiesByChildrenFree(Integer childrenId);
 }

@@ -132,4 +132,9 @@ public class ActivitiesGroup {
     public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s[id=%d]", getClass().getSimpleName(), getId());
+    }
 }

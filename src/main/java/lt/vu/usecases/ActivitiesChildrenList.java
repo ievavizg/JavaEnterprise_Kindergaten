@@ -34,9 +34,18 @@ public class ActivitiesChildrenList {
     @Inject
     private ActivitiesGroupMapper activitiesGroupMapper;
 
+
+    @Inject
+    private ChildrenActivitiesMapper childrenActivitiesMapper;
+
     @Getter
     @Setter
     private Children children = new Children();
+
+
+    @Getter
+    @Setter
+    private ChildrenActivities childrenActivities = new ChildrenActivities();
 
     @Getter
     @Setter
@@ -61,12 +70,4 @@ public class ActivitiesChildrenList {
     private void loadActivitiesGroupChildren(Integer activitiesGroupId) {
         this.childrenList = childrenDAO.loadAll(activitiesGroupId);
     }
-
-/*
-    @Transactional
-    public String createChildren() {
-        children.setKindergarten_group(this.kindergartenGroup);
-        childrenDAO.persist(children);
-        return "groupKids?faces-redirect=true&kindGroupId=" + this.kindergartenGroup.getId();
-    }*/
 }

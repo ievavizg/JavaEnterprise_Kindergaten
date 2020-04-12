@@ -63,11 +63,21 @@
     select ID, DESCRIPTION, NAME, TEACHER_ID
     from PUBLIC.ACTIVITIES_GROUP
   </select>
+
   <select id="selectActivitiesByChildren" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT child.ID, act.NAME FROM PUBLIC.ACTIVITIES_GROUP act
     INNER JOIN PUBLIC.CHILDREN_ACTIVITIES ca ON act.ID = ca.ACTIVITIES_GROUPS_ID
     INNER JOIN PUBLIC.CHILDREN child ON ca.CHILDRENLIST_ID = child.ID
     WHERE child.ID = #{id,jdbcType=INTEGER};
+  </select>
+
+  <select id="selectActivitiesByChildrenFree" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT * FROM PUBLIC.ACTIVITIES_GROUP WHERE ACTIVITIES_GROUP.ID NOT IN (
+      SELECT actgr.id FROM PUBLIC.ACTIVITIES_GROUP actgr
+      INNER JOIN PUBLIC.CHILDREN_ACTIVITIES ca ON actgr.ID = ca.ACTIVITIES_GROUPS_ID
+      INNER JOIN PUBLIC.CHILDREN child ON ca.CHILDRENLIST_ID = child.ID
+      WHERE child.id = #{id,jdbcType=INTEGER}
+    );
   </select>
 
 </mapper>
