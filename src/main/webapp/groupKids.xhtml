@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head/>
+<h:body>
+    <h1>Group #{kindergartenGroupChildrenList.kindergartenGroup.name} children list</h1>
+    <ol>
+        <ui:repeat value="#{kindergartenGroupChildrenList.childrenList}" var="kindergartenGroupChild">
+            <li>
+                <h:link value="#{kindergartenGroupChild.firstName} #{kindergartenGroupChild.lastName}" outcome = "children?childrenId=#{kindergartenGroupChild.id}"/>
+            </li>
+        </ui:repeat>
+    </ol>
+
+    <h:form>
+        Please fill children information:
+        <br/>
+        <h:outputLabel for="childrenFirstName">First name </h:outputLabel>
+        <h:inputText id="childrenFirstName" value="#{kindergartenGroupChildrenList.children.firstName}"></h:inputText>
+        <br/>
+        <h:outputLabel for="childrenLastName">Last name </h:outputLabel>
+        <h:inputText id="childrenLastName" value="#{kindergartenGroupChildrenList.children.lastName}"></h:inputText>
+        <br/>
+        <h:outputLabel for="childrenBirthDate">Birth date </h:outputLabel>
+        <h:inputText id="childrenBirthDate" value="#{kindergartenGroupChildrenList.children.birthDate}">
+            <f:convertDateTime pattern="yyyy-MM-dd"/>
+        </h:inputText>
+        <br/>
+        <h:outputLabel for="childrenPersonalCode">Personal code </h:outputLabel>
+        <h:inputText id="childrenPersonalCode" value="#{kindergartenGroupChildrenList.children.personalCode}" maxlength="11"></h:inputText>
+        <h:commandButton value="submit" type="submit" action="#{kindergartenGroupChildrenList.createChildren}" >
+        <f:param name="kindGroupId" value="#{kindergartenGroupChildrenList.kindergartenGroup.id}" />
+        </h:commandButton>
+        <br/>
+    </h:form>
+
+</h:body>
+</html>

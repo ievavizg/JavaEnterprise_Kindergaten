@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="lt.vu.mybatis.model.Children" alias="Children"/>
+        <typeAlias type="lt.vu.mybatis.model.KindergartenGroup" alias="KindergartenGroup"/>
+        <typeAlias type="lt.vu.mybatis.model.ActivitiesGroup" alias="ActivitiesGroup"/>
+        <typeAlias type="lt.vu.mybatis.model.Teacher" alias="Teacher"/>
+        <typeAlias type="lt.vu.mybatis.model.ChildrenActivities" alias="ChildrenActivities"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="KindergartenDataSource"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis.xml/ChildrenMapper.xml"/>
+        <mapper resource="mybatis.xml/KindergartenGroupMapper.xml"/>
+        <mapper resource="mybatis.xml/ActivitiesGroupMapper.xml"/>
+        <mapper resource="mybatis.xml/TeacherMapper.xml"/>
+        <mapper resource="mybatis.xml/ChildrenActivitiesMapper.xml"/>
+    </mappers>
+</configuration>
