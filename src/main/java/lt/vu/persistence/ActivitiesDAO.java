@@ -27,10 +27,6 @@ public class ActivitiesDAO {
         this.entityManager.persist(activitiesGroup);
     }
 
-    public void remove(ActivitiesGroup activitiesGroup) {
-        this.entityManager.remove(activitiesGroup);
-    }
-
     public ActivitiesGroup findOne(Integer id) {
         return entityManager.find(ActivitiesGroup.class, id);
     }

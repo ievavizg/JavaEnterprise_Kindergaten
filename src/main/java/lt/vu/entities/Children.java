@@ -17,6 +17,7 @@ import java.util.Objects;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Children.findAll", query = "select ch from Children as ch where ch.kindergarten_group.id=:kindGroupId")
+
 })
 @Table(name = "CHILDREN")
 @Getter @Setter

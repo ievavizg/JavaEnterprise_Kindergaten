@@ -200,4 +200,6 @@ public class Children {
     public void setKindGroupId(Integer kindGroupId) {
         this.kindGroupId = kindGroupId;
     }
+
+
 }

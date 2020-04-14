@@ -23,4 +23,6 @@ public interface ChildrenActivitiesMapper {
      * @mbg.generated Sat Apr 11 18:34:57 EEST 2020
      */
     List<ChildrenActivities> selectAll();
+
+
 }

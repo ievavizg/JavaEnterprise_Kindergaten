@@ -42,5 +42,4 @@ public class KindergartenGroups {
         return "index?faces-redirect=true";
     }
 
-
 }

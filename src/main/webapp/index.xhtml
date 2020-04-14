@@ -43,5 +43,23 @@
             </li>
         </ui:repeat>
     </ol>
+    <h5>Add Extracurricular activity:</h5>
+    <h:form>
+        <h:outputLabel for="groupNameAct">Name</h:outputLabel>
+        <h:inputText id="groupNameAct" value="#{activities.activitiesGroup.name}" maxlength="30"></h:inputText>
+        <br/>
+        <h:outputLabel for="groupDescriptionAct">Description</h:outputLabel>
+        <h:inputText id="groupDescriptionAct" value="#{activities.activitiesGroup.description}" label="Description" maxlength="50" ></h:inputText>
+        <br/>
+        <h:outputLabel for="teacherChooseBoxAct">Teacher: </h:outputLabel>
+        <h:selectOneMenu id="teacherChooseBoxAct" value="#{activities.activitiesGroup.teacher}" converter="omnifaces.SelectItemsConverter">
+            <f:selectItem itemLabel="Choose teacher" noSelectionOption="true"/>
+            <f:selectItems value="#{teachers.allTeachers}" var="teacher" itemLabel="#{teacher.firstName}" itemValue="#{teacher}"/>
+        </h:selectOneMenu>
+        <br/>
+        <h:commandButton value="submit" type="submit" action="#{activities.createActivitiesGroup}" />
+    </h:form>
+    <br/>
+
 </h:body>
 </html>

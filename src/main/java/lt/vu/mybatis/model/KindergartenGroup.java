@@ -132,4 +132,5 @@ public class KindergartenGroup {
     public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
+
 }

@@ -19,18 +19,19 @@
         </ui:repeat>
     </ol>
 
+
     <h5>Add activity to children:</h5>
     <h:form>
         <h:selectOneMenu id="activitiesChooseBox" value="#{childrenInformation.activitiesGroup}" converter="omnifaces.SelectItemsConverter">
             <f:selectItem itemLabel="Choose activity" noSelectionOption="true"/>
             <f:selectItems value="#{childrenInformation.activitiesGroupListFree}" var="activitiesGroup" itemLabel="#{activitiesGroup.name}" itemValue="#{activitiesGroup}"/>
         </h:selectOneMenu>
-    <br/>
+        <br/>
         <h:commandButton value="Add" action="#{childrenInformation.addActivity}">
             <f:param name="childrenId" value="#{childrenInformation.children.id}" />
         </h:commandButton>
     </h:form>
-
+<br/>
 
 </h:body>
       </html>

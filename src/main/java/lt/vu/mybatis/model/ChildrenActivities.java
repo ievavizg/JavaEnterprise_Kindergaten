@@ -66,4 +66,6 @@ public class ChildrenActivities {
     public void setActivitiesGroupsId(Integer activitiesGroupsId) {
         this.activitiesGroupsId = activitiesGroupsId;
     }
+
+
 }

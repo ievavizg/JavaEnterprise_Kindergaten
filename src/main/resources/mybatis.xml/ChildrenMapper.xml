@@ -67,4 +67,11 @@
     select ID, BIRTHDATE, FIRST_NAME, LAST_NAME, PERSONAL_CODE, KIND_GROUP_ID
     from PUBLIC.CHILDREN
   </select>
+
+  <select id="selectChildrenByActivity" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT ag.ID, child.FIRST_NAME, child.LAST_NAME FROM PUBLIC.CHILDREN child
+    INNER JOIN PUBLIC.CHILDREN_ACTIVITIES ca ON child.ID = ca.CHILDRENLIST_ID
+    INNER JOIN PUBLIC.ACTIVITIES_GROUP ag ON ca.ACTIVITIES_GROUPS_ID = ag.ID
+    WHERE ag.ID = #{id,jdbcType=INTEGER};
+  </select>
 </mapper>

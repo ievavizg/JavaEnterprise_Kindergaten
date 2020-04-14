@@ -24,5 +24,4 @@ public class ChildrenDAO {
     public Children findOne(Integer id) {
         return entityManager.find(Children.class, id);
     }
-
 }

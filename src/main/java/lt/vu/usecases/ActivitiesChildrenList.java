@@ -3,10 +3,11 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.ActivitiesGroup;
-import lt.vu.entities.Children;
 import lt.vu.entities.KindergartenGroup;
 import lt.vu.mybatis.dao.ActivitiesGroupMapper;
 import lt.vu.mybatis.dao.ChildrenActivitiesMapper;
+import lt.vu.mybatis.dao.ChildrenMapper;
+import lt.vu.mybatis.model.Children;
 import lt.vu.mybatis.model.ChildrenActivities;
 import lt.vu.persistence.ActivitiesDAO;
 import lt.vu.persistence.ChildrenDAO;
@@ -26,9 +27,6 @@ import java.util.Map;
 public class ActivitiesChildrenList {
 
     @Inject
-    private ChildrenDAO childrenDAO;
-
-    @Inject
     private ActivitiesDAO activitiesDAO;
 
     @Inject
@@ -36,7 +34,7 @@ public class ActivitiesChildrenList {
 
 
     @Inject
-    private ChildrenActivitiesMapper childrenActivitiesMapper;
+    private ChildrenMapper childrenMapper;
 
     @Getter
     @Setter
@@ -51,11 +49,8 @@ public class ActivitiesChildrenList {
     @Setter
     private ActivitiesGroup activitiesGroup = new ActivitiesGroup();
 
-    @Getter
-    private List<Children> childrenList;
-
-    @Getter
-    private List<lt.vu.mybatis.model.ActivitiesGroup> activitiesGroupList;
+  @Getter
+  private List<Children> childrenList;
 
 
     @PostConstruct
@@ -68,6 +63,7 @@ public class ActivitiesChildrenList {
     }
 
     private void loadActivitiesGroupChildren(Integer activitiesGroupId) {
-        this.childrenList = childrenDAO.loadAll(activitiesGroupId);
+        this.childrenList = childrenMapper.selectChildrenByActivity(activitiesGroupId);
     }
+
 }

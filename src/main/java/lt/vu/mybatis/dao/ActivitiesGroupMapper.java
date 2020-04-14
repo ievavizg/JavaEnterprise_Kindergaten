@@ -1,6 +1,7 @@
 package lt.vu.mybatis.dao;
 
 import lt.vu.mybatis.model.ActivitiesGroup;
+import lt.vu.mybatis.model.Children;
 import org.mybatis.cdi.Mapper;
 
 import java.util.List;
