@@ -73,7 +73,6 @@
     );
   </select>
 
-
   <select id="selectActivitiesByChildren" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT child.ID, act.NAME FROM PUBLIC.ACTIVITIES_GROUP act
     INNER JOIN PUBLIC.CHILDREN_ACTIVITIES ca ON act.ID = ca.ACTIVITIES_GROUPS_ID

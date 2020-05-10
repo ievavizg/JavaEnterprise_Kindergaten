@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Children;
 import lt.vu.entities.KindergartenGroup;
+import lt.vu.mybatis.dao.KindergartenGroupMapper;
 import lt.vu.persistence.ChildrenDAO;
 import lt.vu.persistence.KindergartenGroupDAO;
 
@@ -37,6 +38,9 @@ public class KindergartenGroupChildrenList {
     @Getter
     private List<Children> childrenList;
 
+    @Getter
+    private Integer childrenNumb;
+
     @PostConstruct
     public void init(){
         Map<String, String> requestParameters =
@@ -48,6 +52,7 @@ public class KindergartenGroupChildrenList {
 
     private void loadKindergartenGroupChildren(Integer kindGroupId) {
         this.childrenList = childrenDAO.loadAll(kindGroupId);
+        childrenNumb = childrenList.size();
     }
 
     @Transactional
@@ -56,4 +61,5 @@ public class KindergartenGroupChildrenList {
         childrenDAO.persist(children);
         return "groupKids?faces-redirect=true&kindGroupId=" + this.kindergartenGroup.getId();
     }
+
 }

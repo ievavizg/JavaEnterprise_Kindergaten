@@ -5,7 +5,7 @@
 >
 <h:head/>
 <h:body>
-    <h1>Group #{kindergartenGroupChildrenList.kindergartenGroup.name} children list</h1>
+    <h1>Group #{kindergartenGroupChildrenList.kindergartenGroup.name} children list (#{kindergartenGroupChildrenList.childrenNumb} children in group)</h1>
     <ol>
         <ui:repeat value="#{kindergartenGroupChildrenList.childrenList}" var="kindergartenGroupChild">
             <li>

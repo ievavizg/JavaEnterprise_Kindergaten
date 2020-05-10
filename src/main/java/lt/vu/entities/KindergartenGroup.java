@@ -11,8 +11,7 @@ import java.util.Objects;
 @Entity
 
 @NamedQueries({
-        @NamedQuery(name = "kindergartenGroup.loadAll", query = "select kg from KindergartenGroup kg")
-})
+        @NamedQuery(name = "kindergartenGroup.loadAll", query = "select kg from KindergartenGroup kg")})
 
 @Table(name = "KINDERGARTEN_GROUP")
 @Getter
