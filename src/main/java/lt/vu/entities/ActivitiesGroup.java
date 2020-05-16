@@ -37,6 +37,10 @@ public class ActivitiesGroup {
     @ManyToMany(mappedBy="activities_groups")
     private List<Children> childrenList = new ArrayList<>();
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

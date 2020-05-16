@@ -36,6 +36,10 @@ public class Teacher {
     @Column(name = "PERSONAL_CODE")
     private Long personalCode;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @OneToMany(mappedBy = "teacher")
     private List<KindergartenGroup> kindergarten_groups = new ArrayList<>();
 

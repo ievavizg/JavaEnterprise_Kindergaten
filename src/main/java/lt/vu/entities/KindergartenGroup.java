@@ -36,6 +36,9 @@ public class KindergartenGroup {
     @OneToMany(mappedBy = "kindergarten_group")
     private List<Children> childrenList = new ArrayList<>();
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 
     @Override
     public boolean equals(Object o) {
