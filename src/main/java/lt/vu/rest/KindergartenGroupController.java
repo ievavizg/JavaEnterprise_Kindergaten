@@ -3,13 +3,15 @@ package lt.vu.rest;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.KindergartenGroup;
+import lt.vu.entities.Teacher;
 import lt.vu.persistence.KindergartenGroupDAO;
+import lt.vu.persistence.TeacherDAO;
 import lt.vu.rest.contracts.KindergartenGroupDTO;
-import org.mybatis.cdi.Transactional;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.OptimisticLockException;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -23,6 +25,10 @@ public class KindergartenGroupController {
     @Inject
     @Setter @Getter
     private KindergartenGroupDAO kindergartenGroupDAO;
+
+    @Inject
+    @Setter @Getter
+    private TeacherDAO teacherDAO;
 
     @Path("/{id}")
     @GET
@@ -39,6 +45,7 @@ public class KindergartenGroupController {
         kindergartenGroupDTO.setName(kindergartenGroup.getName());
         kindergartenGroupDTO.setTeacherName(kindergartenGroup.getTeacher().getFirstName());
         kindergartenGroupDTO.setTeacherName(kindergartenGroup.getTeacher().getLastName());
+
         return Response.ok(kindergartenGroupDTO).build();
     }
 
@@ -75,8 +82,33 @@ public class KindergartenGroupController {
             KindergartenGroup newGroup = new KindergartenGroup();
             newGroup.setName(kindergartenGroupRequest.getName());
             newGroup.setDescription(kindergartenGroupRequest.getDescription());
+            Teacher teacher = teacherDAO.findOne(kindergartenGroupRequest.getTeacherId());
+            newGroup.setTeacher(teacher);
 
             kindergartenGroupDAO.persist(newGroup);
+
+            return Response.ok().build();
+
+        } catch (OptimisticLockException ole) {
+            return Response.status(Response.Status.CONFLICT).build();
+        }
+    }
+
+    @Path("/{id}")
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response update(@PathParam("id") final Integer kindergartenGroupId, KindergartenGroupDTO kindergartenGroupDTO) {
+        try {
+            KindergartenGroup kindergartenGroup = kindergartenGroupDAO.findOne(kindergartenGroupId);
+            if (kindergartenGroup == null) {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
+            kindergartenGroup.setDescription(kindergartenGroupDTO.getDescription());
+            kindergartenGroup.setName(kindergartenGroupDTO.getName());
+            Teacher teacher = teacherDAO.findOne(kindergartenGroupDTO.getTeacherId());
+            kindergartenGroup.setTeacher(teacher);
+            kindergartenGroupDAO.update(kindergartenGroup);
             return Response.ok().build();
         } catch (OptimisticLockException ole) {
             return Response.status(Response.Status.CONFLICT).build();

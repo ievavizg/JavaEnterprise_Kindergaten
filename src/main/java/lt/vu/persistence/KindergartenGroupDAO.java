@@ -28,4 +28,8 @@ public class KindergartenGroupDAO {
     public KindergartenGroup findOne(Integer id) {
         return entityManager.find(KindergartenGroup.class, id);
     }
+
+    public KindergartenGroup update(KindergartenGroup kindergartenGroup){
+        return entityManager.merge(kindergartenGroup);
+    }
 }

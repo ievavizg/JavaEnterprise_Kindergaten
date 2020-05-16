@@ -54,6 +54,12 @@
             <artifactId>omnifaces</artifactId>
             <version>3.4.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 
@@ -81,7 +87,7 @@
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>1.4.196</version>
+                <version>1.4.199</version>
             </dependency>
         </dependencies>
     </plugin>
