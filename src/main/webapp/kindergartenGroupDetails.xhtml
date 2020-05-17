@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head/>
+<h:body>
+    <h1>Edit group information:</h1>
+    <h3>Current name: #{updateKindergartenGroupDetails.kindergartenGroup.name}</h3>
+    <h3>Current description: #{updateKindergartenGroupDetails.kindergartenGroup.description}</h3>
+    <h3>Current teacher: #{updateKindergartenGroupDetails.kindergartenGroup.teacher.firstName} #{updateKindergartenGroupDetails.kindergartenGroup.teacher.lastName}</h3>
+
+    <h:form>
+        <h:outputLabel for="groupName">Group name</h:outputLabel>
+        <h:inputText id="groupName" value="#{updateKindergartenGroupDetails.kindergartenGroup.name}" maxlength="30"></h:inputText>
+        <br/>
+        <h:outputLabel for="groupDescription">Description</h:outputLabel>
+        <h:inputText id="groupDescription" value="#{updateKindergartenGroupDetails.kindergartenGroup.description}" label="Description" maxlength="50" ></h:inputText>
+        <br/>
+        <h:outputLabel for="teacherChooseBox">Teacher: </h:outputLabel>
+        <h:selectOneMenu id="teacherChooseBox" value="#{updateKindergartenGroupDetails.kindergartenGroup.teacher}" converter="omnifaces.SelectItemsConverter">
+            <f:selectItem itemLabel="Choose teacher" noSelectionOption="true"/>
+            <f:selectItems value="#{teachers.allTeachers}" var="teacher" itemLabel="#{teacher.firstName}" itemValue="#{teacher}"/>
+        </h:selectOneMenu>
+        <br/>
+        <h:commandButton value="Update" action="#{updateKindergartenGroupDetails.updateKindergartenGroup}"/>
+    </h:form>
+    <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+</h:body>
+</html>

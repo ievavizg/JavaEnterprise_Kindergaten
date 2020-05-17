@@ -5,6 +5,11 @@
 >
 <h:head/>
 <h:body>
+    <h:column>
+        <f:facet name="header"><b>Edit</b></f:facet>
+        <h:link value="Edit group information" outcome="kindergartenGroupDetails?kindGroupId=#{kindergartenGroupChildrenList.kindergartenGroup.id}" />
+    </h:column>
+
     <h1>Group #{kindergartenGroupChildrenList.kindergartenGroup.name} children list (#{kindergartenGroupChildrenList.childrenNumb} children in group)</h1>
     <ol>
         <ui:repeat value="#{kindergartenGroupChildrenList.childrenList}" var="kindergartenGroupChild">

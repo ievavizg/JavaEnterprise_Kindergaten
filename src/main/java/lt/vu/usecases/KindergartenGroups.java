@@ -21,8 +21,7 @@ public class KindergartenGroups {
 
     @Getter @Setter
     private KindergartenGroup kindergartenGroup = new KindergartenGroup();
-
-
+    
     @Getter
     private List<KindergartenGroup> allKindergartenGroups;
 
