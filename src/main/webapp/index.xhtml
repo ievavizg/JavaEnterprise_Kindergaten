@@ -7,6 +7,13 @@
 <h:head/>
 <h:body>
     <h3>Kindergarten</h3>
+    <br/>
+    <h:form>
+        <h:commandButton value="Get meal price for today" disabled="#{generatePrices.generationRunning}" action="#{generatePrices.generatePrices()}">
+        </h:commandButton>
+        <h:outputText value="#{generatePrices.generationStatus}" />
+    </h:form>
+    <br/>
     <h5>Daily care groups:</h5>
     <h6>Choose group to check children list in that group</h6>
     <ol>
