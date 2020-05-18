@@ -2,7 +2,6 @@ package lt.vu.services;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 @ApplicationScoped

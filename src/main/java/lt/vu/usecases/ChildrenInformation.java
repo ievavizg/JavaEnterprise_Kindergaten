@@ -8,7 +8,6 @@ import lt.vu.mybatis.dao.ActivitiesGroupMapper;
 import lt.vu.mybatis.dao.ChildrenActivitiesMapper;
 import lt.vu.mybatis.model.ActivitiesGroup;
 import lt.vu.mybatis.model.ChildrenActivities;
-import lt.vu.persistence.ActivitiesDAO;
 import lt.vu.persistence.ChildrenDAO;
 
 import javax.annotation.PostConstruct;
