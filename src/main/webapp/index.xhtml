@@ -7,6 +7,7 @@
 <h:head/>
 <h:body>
     <h3>Kindergarten</h3>
+    <h4>#{newsFeedInformation.welcome()}</h4>
     <br/>
     <h:form>
         <h:commandButton value="Get meal price for today" disabled="#{generatePrices.generationRunning}" action="#{generatePrices.generatePrices()}">
